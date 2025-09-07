@@ -41,6 +41,9 @@ Este projeto é um exemplo de aplicação Java para gerenciamento de uma barbear
 - O código é modularizado para facilitar manutenção e evolução.
 - Sinta-se à vontade para expandir funcionalidades, adicionar persistência real ou interface gráfica.
 
+## Diagrama de Atividades
+<img width="951" height="808" alt="diagrama_sistema_barbearia drawio" src="https://github.com/user-attachments/assets/11e85d14-6a90-4eef-8b8d-7a4720ffd390" />
+
 ---
 
 Desenvolvido para fins didáticos, seguindo boas práticas de arquitetura de software.
