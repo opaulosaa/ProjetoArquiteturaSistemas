@@ -1,21 +1,24 @@
 package controller;
 
 import model.Pagamento;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PagamentoController {
-    private List<Pagamento> pagamentos = new ArrayList<>();
+    private final PagamentoService pagamentoService;
+
+    public PagamentoController(PagamentoService pagamentoService) {
+        this.pagamentoService = pagamentoService;
+    }
 
     public void adicionarPagamento(Pagamento pagamento) {
-        pagamentos.add(pagamento);
+        pagamentoService.registrarPagamento(pagamento);
     }
 
     public void removerPagamento(Pagamento pagamento) {
-        pagamentos.remove(pagamento);
+        pagamentoService.cancelarPagamento(pagamento);
     }
 
     public List<Pagamento> listarPagamentos() {
-        return new ArrayList<>(pagamentos);
+        return pagamentoService.listarPagamentos();
     }
 }

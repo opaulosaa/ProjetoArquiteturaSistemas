@@ -1,12 +1,14 @@
 package service;
 
 import model.Servico;
-import repository.ServicoRepository;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class ServicoService {
-    private ServicoRepository servicoRepository = new ServicoRepository();
+    private final Repository<Servico> servicoRepository;
+
+    public ServicoService(Repository<Servico> servicoRepository) {
+        this.servicoRepository = servicoRepository;
+    }
 
     public void cadastrarServico(Servico servico) {
         servicoRepository.save(servico);

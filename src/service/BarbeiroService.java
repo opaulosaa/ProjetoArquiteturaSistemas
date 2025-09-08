@@ -1,12 +1,14 @@
 package service;
 
 import model.Barbeiro;
-import repository.BarbeiroRepository;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class BarbeiroService {
-    private BarbeiroRepository barbeiroRepository = new BarbeiroRepository();
+    private final Repository<Barbeiro> barbeiroRepository;
+
+    public BarbeiroService(Repository<Barbeiro> barbeiroRepository) {
+        this.barbeiroRepository = barbeiroRepository;
+    }
 
     public void cadastrarBarbeiro(Barbeiro barbeiro) {
         barbeiroRepository.save(barbeiro);

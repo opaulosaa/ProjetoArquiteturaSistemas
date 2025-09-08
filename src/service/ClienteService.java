@@ -1,12 +1,14 @@
 package service;
 
 import model.Cliente;
-import repository.ClienteRepository;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class ClienteService {
-    private ClienteRepository clienteRepository = new ClienteRepository();
+    private final Repository<Cliente> clienteRepository;
+
+    public ClienteService(Repository<Cliente> clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
 
     public void cadastrarCliente(Cliente cliente) {
         clienteRepository.save(cliente);

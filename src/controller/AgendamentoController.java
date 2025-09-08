@@ -5,17 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AgendamentoController {
-    private List<Agendamento> agendamentos = new ArrayList<>();
+    private final AgendamentoService agendamentoService;
+
+    public AgendamentoController(AgendamentoService agendamentoService) {
+        this.agendamentoService = agendamentoService;
+    }
 
     public void adicionarAgendamento(Agendamento agendamento) {
-        agendamentos.add(agendamento);
+        agendamentoService.agendar(agendamento);
     }
 
     public void removerAgendamento(Agendamento agendamento) {
-        agendamentos.remove(agendamento);
+        agendamentoService.cancelarAgendamento(agendamento);
     }
 
     public List<Agendamento> listarAgendamentos() {
-        return new ArrayList<>(agendamentos);
+        return agendamentoService.listarAgendamentos();
     }
 }

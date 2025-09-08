@@ -1,12 +1,14 @@
 package service;
 
 import model.Agendamento;
-import repository.AgendamentoRepository;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class AgendamentoService {
-    private AgendamentoRepository agendamentoRepository = new AgendamentoRepository();
+    private final Repository<Agendamento> agendamentoRepository;
+
+    public AgendamentoService(Repository<Agendamento> agendamentoRepository) {
+        this.agendamentoRepository = agendamentoRepository;
+    }
 
     public void agendar(Agendamento agendamento) {
         agendamentoRepository.save(agendamento);

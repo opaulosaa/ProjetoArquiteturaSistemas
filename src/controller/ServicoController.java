@@ -5,17 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServicoController {
-    private List<Servico> servicos = new ArrayList<>();
+    private final ServicoService servicoService;
+
+    public ServicoController(ServicoService servicoService) {
+        this.servicoService = servicoService;
+    }
 
     public void adicionarServico(Servico servico) {
-        servicos.add(servico);
+        servicoService.cadastrarServico(servico);
     }
 
     public void removerServico(Servico servico) {
-        servicos.remove(servico);
+        servicoService.removerServico(servico);
     }
 
     public List<Servico> listarServicos() {
-        return new ArrayList<>(servicos);
+        return servicoService.listarServicos();
     }
 }
+

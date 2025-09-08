@@ -1,12 +1,14 @@
 package service;
 
 import model.Pagamento;
-import repository.PagamentoRepository;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PagamentoService {
-    private PagamentoRepository pagamentoRepository = new PagamentoRepository();
+    private final Repository<Pagamento> pagamentoRepository;
+
+    public PagamentoService(Repository<Pagamento> pagamentoRepository) {
+        this.pagamentoRepository = pagamentoRepository;
+    }
 
     public void registrarPagamento(Pagamento pagamento) {
         pagamentoRepository.save(pagamento);
